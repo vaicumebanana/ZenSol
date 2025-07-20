@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -401,6 +400,88 @@
             margin-top: 1rem;
         }
         
+        .sound-volume {
+            width: 80%;
+            margin: 0.5rem auto 0;
+        }
+        
+        /* Journal Section */
+        .journal-section {
+            padding: 3rem 0;
+            background-color: white;
+            display: none;
+        }
+        
+        .journal-entry {
+            width: 100%;
+            min-height: 200px;
+            padding: 1rem;
+            border: 1px solid var(--accent);
+            border-radius: 5px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            resize: vertical;
+        }
+        
+        .journal-date {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--primary-dark);
+        }
+        
+        /* Affirmations Section */
+        .affirmations-section {
+            padding: 3rem 0;
+            background-color: var(--light);
+            text-align: center;
+            display: none;
+        }
+        
+        .affirmation-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin: 1rem auto;
+            max-width: 600px;
+            font-style: italic;
+            font-size: 1.2rem;
+            position: relative;
+        }
+        
+        .affirmation-card::before, .affirmation-card::after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--primary-light);
+            position: absolute;
+        }
+        
+        .affirmation-card::before {
+            top: 10px;
+            left: 10px;
+        }
+        
+        .affirmation-card::after {
+            bottom: 10px;
+            right: 10px;
+        }
+        
+        /* Progress Section */
+        .progress-section {
+            padding: 3rem 0;
+            background-color: white;
+            display: none;
+        }
+        
+        .progress-chart {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            height: 300px;
+            background-color: var(--light);
+            border-radius: 10px;
+            padding: 1rem;
+        }
+        
         /* CTA Section */
         .cta {
             padding: 5rem 0;
@@ -627,6 +708,10 @@
                     <label for="breathSpeed">Velocidade:</label>
                     <input type="range" id="breathSpeed" min="4" max="12" value="8" style="width: 200px;">
                 </div>
+                <div>
+                    <button class="breathing-btn" id="startBreathingBtn">Iniciar</button>
+                    <button class="breathing-btn" id="stopBreathingBtn">Parar</button>
+                </div>
             </div>
         </div>
     </section>
@@ -645,6 +730,14 @@
                 <label for="timerDuration">Duração (minutos):</label>
                 <input type="number" id="timerDuration" min="1" max="60" value="5" style="width: 60px; padding: 0.5rem;">
             </div>
+            <div>
+                <label for="timerSound">Som do alarme:</label>
+                <select id="timerSound" style="padding: 0.5rem; border-radius: 5px; border: 1px solid var(--accent);">
+                    <option value="bell">Sino Tibetano</option>
+                    <option value="bowl">Tigela de Cristal</option>
+                    <option value="gong">Gongo</option>
+                </select>
+            </div>
         </div>
     </section>
     
@@ -655,32 +748,79 @@
             <div class="sound-player">
                 <h3>Oceano</h3>
                 <audio id="oceanSound" loop>
-                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                    <source src="https://assets.mixkit.co/sfx/preview/mixkit-ocean-waves-loop-1248.mp3" type="audio/mpeg">
                 </audio>
                 <div class="sound-controls">
                     <button class="timer-btn" id="playOcean">Tocar</button>
                     <button class="timer-btn" id="stopOcean">Parar</button>
                 </div>
+                <input type="range" min="0" max="1" step="0.1" value="0.5" class="sound-volume" id="oceanVolume">
             </div>
             <div class="sound-player">
                 <h3>Floresta</h3>
                 <audio id="forestSound" loop>
-                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+                    <source src="https://assets.mixkit.co/sfx/preview/mixkit-forest-ambience-1685.mp3" type="audio/mpeg">
                 </audio>
                 <div class="sound-controls">
                     <button class="timer-btn" id="playForest">Tocar</button>
                     <button class="timer-btn" id="stopForest">Parar</button>
                 </div>
+                <input type="range" min="0" max="1" step="0.1" value="0.5" class="sound-volume" id="forestVolume">
             </div>
             <div class="sound-player">
                 <h3>Chuva</h3>
                 <audio id="rainSound" loop>
-                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" type="audio/mpeg">
+                    <source src="https://assets.mixkit.co/sfx/preview/mixkit-rain-ambience-240.mp3" type="audio/mpeg">
                 </audio>
                 <div class="sound-controls">
                     <button class="timer-btn" id="playRain">Tocar</button>
                     <button class="timer-btn" id="stopRain">Parar</button>
                 </div>
+                <input type="range" min="0" max="1" step="0.1" value="0.5" class="sound-volume" id="rainVolume">
+            </div>
+            <div class="sound-player">
+                <h3>Mantra</h3>
+                <audio id="mantraSound" loop>
+                    <source src="https://assets.mixkit.co/music/preview/mixkit-spiritual-achievement-117.mp3" type="audio/mpeg">
+                </audio>
+                <div class="sound-controls">
+                    <button class="timer-btn" id="playMantra">Tocar</button>
+                    <button class="timer-btn" id="stopMantra">Parar</button>
+                </div>
+                <input type="range" min="0" max="1" step="0.1" value="0.5" class="sound-volume" id="mantraVolume">
+            </div>
+        </div>
+    </section>
+    
+    <!-- Journal Section -->
+    <section class="journal-section" id="journalTool">
+        <div class="container">
+            <h2 class="section-title">Diário de Meditação</h2>
+            <div class="journal-date" id="journalDate"></div>
+            <textarea class="journal-entry" id="journalEntry" placeholder="Escreva sobre sua experiência de meditação hoje..."></textarea>
+            <div style="margin-top: 1rem; text-align: right;">
+                <button class="btn" id="saveJournal">Salvar</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Affirmations Section -->
+    <section class="affirmations-section" id="affirmationsTool">
+        <div class="container">
+            <h2 class="section-title">Afirmações Positivas</h2>
+            <div class="affirmation-card" id="affirmationText">
+                Eu sou calmo, centrado e em paz comigo mesmo.
+            </div>
+            <button class="btn" id="newAffirmation">Nova Afirmação</button>
+        </div>
+    </section>
+    
+    <!-- Progress Section -->
+    <section class="progress-section" id="progressTool">
+        <div class="container">
+            <h2 class="section-title">Seu Progresso</h2>
+            <div class="progress-chart" id="progressChart">
+                <canvas id="meditationChart"></canvas>
             </div>
         </div>
     </section>
@@ -702,19 +842,15 @@
                     <h3><i class="fas fa-music"></i> Sons Relaxantes</h3>
                     <p>Selecione entre diversos ambientes sonoros.</p>
                 </div>
-                <div class="tool-card">
-                    <h3><i class="fas fa-bell"></i> Lembrete Diário</h3>
-                    <p>Configure alertas para sua prática diária.</p>
-                </div>
-                <div class="tool-card">
-                    <h3><i class="fas fa-chart-line"></i> Acompanhamento</h3>
-                    <p>Registre e visualize seu progresso.</p>
-                </div>
-                <div class="tool-card">
+                <div class="tool-card" id="openJournalTool">
                     <h3><i class="fas fa-book"></i> Diário</h3>
                     <p>Anote suas experiências e insights.</p>
                 </div>
-                <div class="tool-card">
+                <div class="tool-card" id="openProgressTool">
+                    <h3><i class="fas fa-chart-line"></i> Acompanhamento</h3>
+                    <p>Registre e visualize seu progresso.</p>
+                </div>
+                <div class="tool-card" id="openAffirmationsTool">
                     <h3><i class="fas fa-quote-right"></i> Afirmações</h3>
                     <p>Frases positivas para inspirar seu dia.</p>
                 </div>
@@ -737,6 +873,10 @@
                 <div class="tool-card">
                     <h3><i class="fas fa-eye"></i> Visualização</h3>
                     <p>Pratique meditação através de imagens mentais.</p>
+                </div>
+                <div class="tool-card">
+                    <h3><i class="fas fa-bell"></i> Lembrete Diário</h3>
+                    <p>Configure alertas para sua prática diária.</p>
                 </div>
             </div>
         </div>
@@ -770,6 +910,8 @@
                         <li><a href="#meditacao">Assistente de Respiração</a></li>
                         <li><a href="#timerTool">Temporizador</a></li>
                         <li><a href="#soundsTool">Sons Relaxantes</a></li>
+                        <li><a href="#journalTool">Diário</a></li>
+                        <li><a href="#affirmationsTool">Afirmações</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -777,6 +919,7 @@
                     <ul>
                         <li><i class="fas fa-envelope"></i> contato@zensol.com</li>
                         <li><i class="fas fa-phone"></i> (11) 1234-5678</li>
+                        <li><i class="fas fa-map-marker-alt"></i> São Paulo, Brasil</li>
                     </ul>
                 </div>
             </div>
@@ -786,6 +929,7 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         // Mobile Menu Toggle
         document.querySelector('.mobile-menu').addEventListener('click', function() {
@@ -815,10 +959,18 @@
         });
         
         // Tool Navigation
+        function hideAllTools() {
+            document.getElementById('meditacao').style.display = 'none';
+            document.getElementById('timerTool').style.display = 'none';
+            document.getElementById('soundsTool').style.display = 'none';
+            document.getElementById('journalTool').style.display = 'none';
+            document.getElementById('affirmationsTool').style.display = 'none';
+            document.getElementById('progressTool').style.display = 'none';
+        }
+        
         document.querySelectorAll('#openBreathingTool, #openBreathingTool2').forEach(el => {
             el.addEventListener('click', () => {
-                document.getElementById('timerTool').style.display = 'none';
-                document.getElementById('soundsTool').style.display = 'none';
+                hideAllTools();
                 document.getElementById('meditacao').style.display = 'block';
                 window.location.hash = '#meditacao';
             });
@@ -826,8 +978,7 @@
         
         document.querySelectorAll('#openTimerTool, #openTimerTool2').forEach(el => {
             el.addEventListener('click', () => {
-                document.getElementById('meditacao').style.display = 'none';
-                document.getElementById('soundsTool').style.display = 'none';
+                hideAllTools();
                 document.getElementById('timerTool').style.display = 'block';
                 window.location.hash = '#timerTool';
             });
@@ -835,24 +986,52 @@
         
         document.querySelectorAll('#openSoundsTool, #openSoundsTool2').forEach(el => {
             el.addEventListener('click', () => {
-                document.getElementById('meditacao').style.display = 'none';
-                document.getElementById('timerTool').style.display = 'none';
+                hideAllTools();
                 document.getElementById('soundsTool').style.display = 'block';
                 window.location.hash = '#soundsTool';
+            });
+        });
+        
+        document.querySelectorAll('#openJournalTool').forEach(el => {
+            el.addEventListener('click', () => {
+                hideAllTools();
+                document.getElementById('journalTool').style.display = 'block';
+                updateJournalDate();
+                loadJournalEntry();
+                window.location.hash = '#journalTool';
+            });
+        });
+        
+        document.querySelectorAll('#openAffirmationsTool').forEach(el => {
+            el.addEventListener('click', () => {
+                hideAllTools();
+                document.getElementById('affirmationsTool').style.display = 'block';
+                window.location.hash = '#affirmationsTool';
+            });
+        });
+        
+        document.querySelectorAll('#openProgressTool').forEach(el => {
+            el.addEventListener('click', () => {
+                hideAllTools();
+                document.getElementById('progressTool').style.display = 'block';
+                renderMeditationChart();
+                window.location.hash = '#progressTool';
             });
         });
         
         // Breathing Assistant
         const breathingCircle = document.getElementById('breathingCircle');
         const breathSpeed = document.getElementById('breathSpeed');
+        const startBreathingBtn = document.getElementById('startBreathingBtn');
+        const stopBreathingBtn = document.getElementById('stopBreathingBtn');
         
         let breathingInterval;
         let isBreathing = false;
         let breathDuration = 8000; // 8 seconds by default
         
         // Create audio elements
-        const inhaleSound = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3');
-        const exhaleSound = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3');
+        const inhaleSound = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-deep-voice-meditation-1680.mp3');
+        const exhaleSound = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-meditation-deep-breath-1681.mp3');
         
         breathSpeed.addEventListener('input', function() {
             breathDuration = (12 - parseInt(this.value)) * 1000;
@@ -864,6 +1043,8 @@
         
         function startBreathing() {
             isBreathing = true;
+            startBreathingBtn.disabled = true;
+            stopBreathingBtn.disabled = false;
             
             const inhaleTime = breathDuration * 0.4;
             const exhaleTime = breathDuration * 0.4;
@@ -906,6 +1087,8 @@
         
         function stopBreathing() {
             isBreathing = false;
+            startBreathingBtn.disabled = false;
+            stopBreathingBtn.disabled = true;
             clearInterval(breathingInterval);
             breathingCircle.style.animation = 'none';
             breathingCircle.textContent = 'Clique para Iniciar';
@@ -918,6 +1101,9 @@
                 startBreathing();
             }
         });
+        
+        startBreathingBtn.addEventListener('click', startBreathing);
+        stopBreathingBtn.addEventListener('click', stopBreathing);
         
         // Add keyframes dynamically for pause animation
         const style = document.createElement('style');
@@ -934,6 +1120,14 @@
         const pauseTimerBtn = document.getElementById('pauseTimer');
         const resetTimerBtn = document.getElementById('resetTimer');
         const timerDuration = document.getElementById('timerDuration');
+        const timerSoundSelect = document.getElementById('timerSound');
+        
+        // Timer sounds
+        const timerSounds = {
+            bell: new Audio('https://assets.mixkit.co/sfx/preview/mixkit-singing-bowl-1683.mp3'),
+            bowl: new Audio('https://assets.mixkit.co/sfx/preview/mixkit-crystal-singing-bowl-1682.mp3'),
+            gong: new Audio('https://assets.mixkit.co/sfx/preview/mixkit-meditation-gong-1684.mp3')
+        };
         
         let timer;
         let timeLeft = 5 * 60; // 5 minutes in seconds
@@ -958,7 +1152,8 @@
                     if (timeLeft <= 0) {
                         clearInterval(timer);
                         isRunning = false;
-                        new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3').play();
+                        const sound = timerSounds[timerSoundSelect.value];
+                        sound.play();
                         alert('Tempo de meditação concluído!');
                         resetTimer();
                     }
@@ -999,6 +1194,24 @@
         const oceanSound = document.getElementById('oceanSound');
         const forestSound = document.getElementById('forestSound');
         const rainSound = document.getElementById('rainSound');
+        const mantraSound = document.getElementById('mantraSound');
+        
+        // Volume controls
+        document.getElementById('oceanVolume').addEventListener('input', function() {
+            oceanSound.volume = this.value;
+        });
+        
+        document.getElementById('forestVolume').addEventListener('input', function() {
+            forestSound.volume = this.value;
+        });
+        
+        document.getElementById('rainVolume').addEventListener('input', function() {
+            rainSound.volume = this.value;
+        });
+        
+        document.getElementById('mantraVolume').addEventListener('input', function() {
+            mantraSound.volume = this.value;
+        });
         
         document.getElementById('playOcean').addEventListener('click', () => {
             stopAllSounds();
@@ -1030,6 +1243,16 @@
             rainSound.currentTime = 0;
         });
         
+        document.getElementById('playMantra').addEventListener('click', () => {
+            stopAllSounds();
+            mantraSound.play();
+        });
+        
+        document.getElementById('stopMantra').addEventListener('click', () => {
+            mantraSound.pause();
+            mantraSound.currentTime = 0;
+        });
+        
         function stopAllSounds() {
             oceanSound.pause();
             oceanSound.currentTime = 0;
@@ -1037,35 +1260,141 @@
             forestSound.currentTime = 0;
             rainSound.pause();
             rainSound.currentTime = 0;
+            mantraSound.pause();
+            mantraSound.currentTime = 0;
+        }
+        
+        // Journal Functionality
+        function updateJournalDate() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('journalDate').textContent = now.toLocaleDateString('pt-BR', options);
+        }
+        
+        function loadJournalEntry() {
+            const today = new Date().toDateString();
+            const savedEntry = localStorage.getItem(`journal_${today}`);
+            if (savedEntry) {
+                document.getElementById('journalEntry').value = savedEntry;
+            } else {
+                document.getElementById('journalEntry').value = '';
+            }
+        }
+        
+        document.getElementById('saveJournal').addEventListener('click', function() {
+            const today = new Date().toDateString();
+            const entry = document.getElementById('journalEntry').value;
+            localStorage.setItem(`journal_${today}`, entry);
+            alert('Diário salvo com sucesso!');
+        });
+        
+        // Affirmations Functionality
+        const affirmations = [
+            "Eu sou calmo, centrado e em paz comigo mesmo.",
+            "Cada respiração me traz mais paz e clareza.",
+            "Eu mereço este momento de tranquilidade.",
+            "Minha mente está quieta e meu coração está aberto.",
+            "Eu liberto todas as tensões e preocupações.",
+            "Estou presente neste momento, aqui e agora.",
+            "Cada dia é uma nova oportunidade para crescer.",
+            "Eu escolho a paz sobre o estresse.",
+            "Minha respiração é profunda e relaxante.",
+            "Eu sou grato por este momento de quietude.",
+            "Eu me permito relaxar completamente.",
+            "Estou em harmonia com o universo."
+        ];
+        
+        document.getElementById('newAffirmation').addEventListener('click', function() {
+            const randomIndex = Math.floor(Math.random() * affirmations.length);
+            document.getElementById('affirmationText').textContent = affirmations[randomIndex];
+        });
+        
+        // Progress Chart Functionality
+        function renderMeditationChart() {
+            // Sample data - in a real app, this would come from localStorage or a database
+            const ctx = document.getElementById('meditationChart').getContext('2d');
+            
+            // Generate sample data for the last 7 days
+            const labels = [];
+            const data = [];
+            const today = new Date();
+            
+            for (let i = 6; i >= 0; i--) {
+                const date = new Date(today);
+                date.setDate(date.getDate() - i);
+                labels.push(date.toLocaleDateString('pt-BR', { weekday: 'short' }));
+                data.push(Math.floor(Math.random() * 30) + 5); // Random minutes between 5-35
+            }
+            
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Minutos de Meditação',
+                        data: data,
+                        backgroundColor: 'rgba(74, 124, 89, 0.2)',
+                        borderColor: 'rgba(74, 124, 89, 1)',
+                        borderWidth: 2,
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Minutos'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Dias da Semana'
+                            }
+                        }
+                    }
+                }
+            });
         }
         
         // Initialize timer display
         updateTimerDisplay();
         
+        // Set default volumes
+        oceanSound.volume = 0.5;
+        forestSound.volume = 0.5;
+        rainSound.volume = 0.5;
+        mantraSound.volume = 0.5;
+        
         // Animation on Scroll
         function animateOnScroll() {
             const elements = document.querySelectorAll('.feature-card, .tool-card, .section-title');
 
-        function checkIfInView() {
-            elements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementBottom = element.getBoundingClientRect().bottom;
-                
-                if (elementTop < window.innerHeight && elementBottom > 0) {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
-                }
-            });
+            function checkIfInView() {
+                elements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementBottom = element.getBoundingClientRect().bottom;
+                    
+                    if (elementTop < window.innerHeight && elementBottom > 0) {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }
+                });
+            }
+            
+            // Initial check
+            checkIfInView();
+            
+            // Check on scroll
+            window.addEventListener('scroll', checkIfInView);
         }
-        
-        // Initial check
-        checkIfInView();
-        
-        // Check on scroll
-        window.addEventListener('scroll', checkIfInView);
-    }
 
-    // Call the function when the page loads
-    window.addEventListener('load', animateOnScroll);
-</script>
-</body> </html>
+        // Call the function when the page loads
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
