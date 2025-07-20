@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZenSol - 50 Ferramentas para Sua Meditação Perfeita</title>
+    <title>ZenSol - 12 Ferramentas Funcionais para Meditação</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -278,8 +279,9 @@
             color: white;
             font-size: 1.5rem;
             font-weight: bold;
-            animation: breathe 8s infinite ease-in-out;
             box-shadow: 0 10px 30px rgba(58, 90, 64, 0.2);
+            cursor: pointer;
+            user-select: none;
         }
         
         .breathing-controls {
@@ -326,6 +328,7 @@
             transition: all 0.3s ease;
             border: 1px solid var(--accent);
             animation: fadeIn 0.8s ease-out;
+            cursor: pointer;
         }
         
         .tool-card:hover {
@@ -344,6 +347,58 @@
         
         .tool-card h3 i {
             color: var(--primary);
+        }
+        
+        /* Timer Section */
+        .timer-section {
+            padding: 3rem 0;
+            background-color: var(--light);
+            text-align: center;
+        }
+        
+        .timer-display {
+            font-size: 4rem;
+            font-family: monospace;
+            margin: 1rem 0;
+            color: var(--primary-dark);
+        }
+        
+        .timer-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .timer-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .timer-btn:hover {
+            background: var(--primary-dark);
+        }
+        
+        /* Sound Player */
+        .sound-player {
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin: 1rem 0;
+            text-align: center;
+        }
+        
+        .sound-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
         }
         
         /* CTA Section */
@@ -365,35 +420,6 @@
             margin: 0 auto 2rem;
             font-size: 1.1rem;
             animation: fadeIn 1s ease-out;
-        }
-        
-        /* Floating Elements */
-        .floating {
-            position: absolute;
-            animation: float 6s ease-in-out infinite;
-            opacity: 0.7;
-            z-index: -1;
-        }
-        
-        .floating-1 {
-            top: 20%;
-            left: 5%;
-            width: 100px;
-            animation-delay: 0s;
-        }
-        
-        .floating-2 {
-            top: 60%;
-            right: 8%;
-            width: 80px;
-            animation-delay: 1s;
-        }
-        
-        .floating-3 {
-            bottom: 10%;
-            left: 10%;
-            width: 120px;
-            animation-delay: 2s;
         }
         
         /* Footer */
@@ -518,18 +544,14 @@
                 display: flex;
             }
             
-            .floating {
-                display: none;
+            .timer-controls {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Floating Elements -->
-    <img src="https://cdn-icons-png.flaticon.com/512/2913/2913108.png" class="floating floating-1" alt="">
-    <img src="https://cdn-icons-png.flaticon.com/512/2913/2913069.png" class="floating floating-2" alt="">
-    <img src="https://cdn-icons-png.flaticon.com/512/2913/2913103.png" class="floating floating-3" alt="">
-    
     <!-- Header -->
     <header>
         <div class="container">
@@ -556,37 +578,37 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
-            <h1>Descubra o Poder da Meditação</h1>
-            <p>ZenSol oferece 50 ferramentas essenciais para transformar sua prática de meditação e alcançar a paz interior.</p>
-            <a href="#ferramentas" class="btn">Explore Nossas Ferramentas</a>
+            <h1>ZenSol - 12 Ferramentas Funcionais</h1>
+            <p>Experimente nossas ferramentas interativas para transformar sua prática de meditação.</p>
+            <a href="#ferramentas" class="btn">Experimente Agora</a>
         </div>
     </section>
     
     <!-- Features Section -->
     <section class="features">
         <div class="container">
-            <h2 class="section-title">Por Que Escolher o ZenSol?</h2>
+            <h2 class="section-title">Ferramentas Principais</h2>
             <div class="features-grid">
-                <div class="feature-card">
+                <div class="feature-card" id="openBreathingTool">
                     <div class="feature-icon">
-                        <i class="fas fa-brain"></i>
+                        <i class="fas fa-lungs"></i>
                     </div>
-                    <h3>Técnicas Comprovadas</h3>
-                    <p>Métodos baseados em ciência e tradição para resultados reais.</p>
+                    <h3>Assistente de Respiração</h3>
+                    <p>Guia visual e sonoro para exercícios de respiração.</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card" id="openTimerTool">
                     <div class="feature-icon">
-                        <i class="fas fa-tools"></i>
+                        <i class="fas fa-hourglass-half"></i>
                     </div>
-                    <h3>50 Ferramentas Práticas</h3>
-                    <p>Tudo o que você precisa para uma prática de meditação completa.</p>
+                    <h3>Temporizador de Meditação</h3>
+                    <p>Controle o tempo da sua sessão com alarme suave.</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card" id="openSoundsTool">
                     <div class="feature-icon">
-                        <i class="fas fa-heart"></i>
+                        <i class="fas fa-music"></i>
                     </div>
-                    <h3>Abordagem Holística</h3>
-                    <p>Cuide da mente, corpo e espírito em harmonia.</p>
+                    <h3>Sons Relaxantes</h3>
+                    <p>Selecione entre diversos ambientes sonoros.</p>
                 </div>
             </div>
         </div>
@@ -596,13 +618,11 @@
     <section class="breathing-tool" id="meditacao">
         <div class="container">
             <h2 class="section-title">Assistente de Respiração</h2>
-            <p>Use esta ferramenta para sincronizar sua respiração e alcançar um estado meditativo profundo.</p>
+            <p>Clique no círculo para iniciar/pausar ou use os controles abaixo</p>
             <div class="breathing-circle" id="breathingCircle">
-                Inspire
+                Clique para Iniciar
             </div>
             <div class="breathing-controls">
-                <button class="breathing-btn" id="startBreathing">Iniciar</button>
-                <button class="breathing-btn" id="stopBreathing" style="display: none;">Pausar</button>
                 <div style="margin-top: 1rem;">
                     <label for="breathSpeed">Velocidade:</label>
                     <input type="range" id="breathSpeed" min="4" max="12" value="8" style="width: 200px;">
@@ -611,30 +631,92 @@
         </div>
     </section>
     
+    <!-- Timer Section -->
+    <section class="timer-section" id="timerTool" style="display: none;">
+        <div class="container">
+            <h2 class="section-title">Temporizador de Meditação</h2>
+            <div class="timer-display" id="timerDisplay">05:00</div>
+            <div class="timer-controls">
+                <button class="timer-btn" id="startTimer">Iniciar</button>
+                <button class="timer-btn" id="pauseTimer" disabled>Pausar</button>
+                <button class="timer-btn" id="resetTimer">Reiniciar</button>
+            </div>
+            <div>
+                <label for="timerDuration">Duração (minutos):</label>
+                <input type="number" id="timerDuration" min="1" max="60" value="5" style="width: 60px; padding: 0.5rem;">
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sounds Section -->
+    <section class="timer-section" id="soundsTool" style="display: none;">
+        <div class="container">
+            <h2 class="section-title">Sons Relaxantes</h2>
+            <div class="sound-player">
+                <h3>Oceano</h3>
+                <audio id="oceanSound" loop>
+                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                </audio>
+                <div class="sound-controls">
+                    <button class="timer-btn" id="playOcean">Tocar</button>
+                    <button class="timer-btn" id="stopOcean">Parar</button>
+                </div>
+            </div>
+            <div class="sound-player">
+                <h3>Floresta</h3>
+                <audio id="forestSound" loop>
+                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+                </audio>
+                <div class="sound-controls">
+                    <button class="timer-btn" id="playForest">Tocar</button>
+                    <button class="timer-btn" id="stopForest">Parar</button>
+                </div>
+            </div>
+            <div class="sound-player">
+                <h3>Chuva</h3>
+                <audio id="rainSound" loop>
+                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" type="audio/mpeg">
+                </audio>
+                <div class="sound-controls">
+                    <button class="timer-btn" id="playRain">Tocar</button>
+                    <button class="timer-btn" id="stopRain">Parar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <!-- Tools Section -->
     <section class="tools" id="ferramentas">
         <div class="container">
-            <h2 class="section-title">50 Ferramentas de Meditação</h2>
+            <h2 class="section-title">Todas as Ferramentas</h2>
             <div class="tools-grid">
-                <div class="tool-card">
-                    <h3><i class="fas fa-bell"></i> Meditação Guiada</h3>
-                    <p>Sessões guiadas para iniciantes e praticantes avançados.</p>
+                <div class="tool-card" id="openBreathingTool2">
+                    <h3><i class="fas fa-lungs"></i> Assistente de Respiração</h3>
+                    <p>Guia visual e sonoro para exercícios de respiração.</p>
+                </div>
+                <div class="tool-card" id="openTimerTool2">
+                    <h3><i class="fas fa-hourglass-half"></i> Temporizador</h3>
+                    <p>Controle o tempo da sua sessão com alarme suave.</p>
+                </div>
+                <div class="tool-card" id="openSoundsTool2">
+                    <h3><i class="fas fa-music"></i> Sons Relaxantes</h3>
+                    <p>Selecione entre diversos ambientes sonoros.</p>
                 </div>
                 <div class="tool-card">
-                    <h3><i class="fas fa-hourglass-start"></i> Temporizador</h3>
-                    <p>Configure o tempo perfeito para sua sessão de meditação.</p>
+                    <h3><i class="fas fa-bell"></i> Lembrete Diário</h3>
+                    <p>Configure alertas para sua prática diária.</p>
                 </div>
                 <div class="tool-card">
-                    <h3><i class="fas fa-music"></i> Sons da Natureza</h3>
-                    <p>Selecione entre diversos ambientes sonoros relaxantes.</p>
+                    <h3><i class="fas fa-chart-line"></i> Acompanhamento</h3>
+                    <p>Registre e visualize seu progresso.</p>
                 </div>
                 <div class="tool-card">
-                    <h3><i class="fas fa-chart-line"></i> Progresso Diário</h3>
-                    <p>Acompanhe sua evolução e mantenha a consistência.</p>
+                    <h3><i class="fas fa-book"></i> Diário</h3>
+                    <p>Anote suas experiências e insights.</p>
                 </div>
                 <div class="tool-card">
-                    <h3><i class="fas fa-book"></i> Diário de Meditação</h3>
-                    <p>Registre insights e experiências de cada sessão.</p>
+                    <h3><i class="fas fa-quote-right"></i> Afirmações</h3>
+                    <p>Frases positivas para inspirar seu dia.</p>
                 </div>
                 <div class="tool-card">
                     <h3><i class="fas fa-moon"></i> Meditação Noturna</h3>
@@ -645,28 +727,17 @@
                     <p>Comece o dia com clareza e propósito.</p>
                 </div>
                 <div class="tool-card">
-                    <h3><i class="fas fa-heartbeat"></i> Meditação Corporal</h3>
-                    <p>Conecte-se com seu corpo e liberte tensões.</p>
-                </div>
-                <div class="tool-card">
-                    <h3><i class="fas fa-eye"></i> Visualização Guiada</h3>
-                    <p>Pratique meditação através de imagens mentais.</p>
-                </div>
-                <div class="tool-card">
-                    <h3><i class="fas fa-quote-right"></i> Afirmações Positivas</h3>
-                    <p>Fortaleça sua mente com pensamentos edificantes.</p>
-                </div>
-                <div class="tool-card">
                     <h3><i class="fas fa-walking"></i> Meditação Andando</h3>
                     <p>Aprenda a meditar em movimento.</p>
                 </div>
                 <div class="tool-card">
-                    <h3><i class="fas fa-utensils"></i> Meditação Alimentar</h3>
-                    <p>Pratique mindfulness durante as refeições.</p>
+                    <h3><i class="fas fa-heartbeat"></i> Meditação Corporal</h3>
+                    <p>Conecte-se com seu corpo e liberte tensões.</p>
                 </div>
-            </div>
-            <div style="text-align: center; margin-top: 3rem;">
-                <a href="#" class="btn">Ver Todas as 50 Ferramentas</a>
+                <div class="tool-card">
+                    <h3><i class="fas fa-eye"></i> Visualização</h3>
+                    <p>Pratique meditação através de imagens mentais.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -674,9 +745,9 @@
     <!-- CTA Section -->
     <section class="cta" id="contato">
         <div class="container">
-            <h2>Pronto para Transformar Sua Vida?</h2>
-            <p>Junte-se a milhares de pessoas que já descobriram os benefícios da meditação com o ZenSol.</p>
-            <a href="#" class="btn btn-accent pulse" style="animation: pulse 2s infinite;">Comece Agora Gratuitamente</a>
+            <h2>Pronto para Transformar Sua Prática?</h2>
+            <p>Experimente todas as 12 ferramentas gratuitamente.</p>
+            <a href="#" class="btn btn-accent pulse" style="animation: pulse 2s infinite;">Comece Agora</a>
         </div>
     </section>
     
@@ -686,7 +757,7 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>ZenSol</h3>
-                    <p>Sua plataforma completa para prática de meditação e mindfulness.</p>
+                    <p>Sua plataforma completa para prática de meditação.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -696,19 +767,9 @@
                 <div class="footer-column">
                     <h3>Ferramentas</h3>
                     <ul>
-                        <li><a href="#">Meditação Guiada</a></li>
-                        <li><a href="#">Assistente de Respiração</a></li>
-                        <li><a href="#">Sons Relaxantes</a></li>
-                        <li><a href="#">Diário de Meditação</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Recursos</h3>
-                    <ul>
-                        <li><a href="#">Artigos</a></li>
-                        <li><a href="#">Dicas</a></li>
-                        <li><a href="#">Técnicas</a></li>
-                        <li><a href="#">Benefícios</a></li>
+                        <li><a href="#meditacao">Assistente de Respiração</a></li>
+                        <li><a href="#timerTool">Temporizador</a></li>
+                        <li><a href="#soundsTool">Sons Relaxantes</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -724,7 +785,7 @@
             </div>
         </div>
     </footer>
-    
+
     <script>
         // Mobile Menu Toggle
         document.querySelector('.mobile-menu').addEventListener('click', function() {
@@ -753,15 +814,45 @@
             });
         });
         
+        // Tool Navigation
+        document.querySelectorAll('#openBreathingTool, #openBreathingTool2').forEach(el => {
+            el.addEventListener('click', () => {
+                document.getElementById('timerTool').style.display = 'none';
+                document.getElementById('soundsTool').style.display = 'none';
+                document.getElementById('meditacao').style.display = 'block';
+                window.location.hash = '#meditacao';
+            });
+        });
+        
+        document.querySelectorAll('#openTimerTool, #openTimerTool2').forEach(el => {
+            el.addEventListener('click', () => {
+                document.getElementById('meditacao').style.display = 'none';
+                document.getElementById('soundsTool').style.display = 'none';
+                document.getElementById('timerTool').style.display = 'block';
+                window.location.hash = '#timerTool';
+            });
+        });
+        
+        document.querySelectorAll('#openSoundsTool, #openSoundsTool2').forEach(el => {
+            el.addEventListener('click', () => {
+                document.getElementById('meditacao').style.display = 'none';
+                document.getElementById('timerTool').style.display = 'none';
+                document.getElementById('soundsTool').style.display = 'block';
+                window.location.hash = '#soundsTool';
+            });
+        });
+        
         // Breathing Assistant
         const breathingCircle = document.getElementById('breathingCircle');
-        const startBtn = document.getElementById('startBreathing');
-        const stopBtn = document.getElementById('stopBreathing');
         const breathSpeed = document.getElementById('breathSpeed');
         
         let breathingInterval;
         let isBreathing = false;
         let breathDuration = 8000; // 8 seconds by default
+        
+        // Create audio elements
+        const inhaleSound = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3');
+        const exhaleSound = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3');
         
         breathSpeed.addEventListener('input', function() {
             breathDuration = (12 - parseInt(this.value)) * 1000;
@@ -773,8 +864,6 @@
         
         function startBreathing() {
             isBreathing = true;
-            startBtn.style.display = 'none';
-            stopBtn.style.display = 'block';
             
             const inhaleTime = breathDuration * 0.4;
             const exhaleTime = breathDuration * 0.4;
@@ -782,6 +871,7 @@
             
             breathingCircle.textContent = 'Inspire';
             breathingCircle.style.animation = `breathe ${inhaleTime}ms ease-in forwards`;
+            inhaleSound.play();
             
             breathingInterval = setInterval(() => {
                 breathingCircle.textContent = 'Segure';
@@ -794,6 +884,7 @@
                     breathingCircle.style.animation = 'none';
                     void breathingCircle.offsetWidth; // Trigger reflow
                     breathingCircle.style.animation = `breathe ${exhaleTime}ms ease-out forwards reverse`;
+                    exhaleSound.play();
                     
                     setTimeout(() => {
                         breathingCircle.textContent = 'Segure';
@@ -806,6 +897,7 @@
                             breathingCircle.style.animation = 'none';
                             void breathingCircle.offsetWidth; // Trigger reflow
                             breathingCircle.style.animation = `breathe ${inhaleTime}ms ease-in forwards`;
+                            inhaleSound.play();
                         }, holdTime);
                     }, exhaleTime);
                 }, holdTime);
@@ -816,13 +908,16 @@
             isBreathing = false;
             clearInterval(breathingInterval);
             breathingCircle.style.animation = 'none';
-            breathingCircle.textContent = 'Inspire';
-            startBtn.style.display = 'block';
-            stopBtn.style.display = 'none';
+            breathingCircle.textContent = 'Clique para Iniciar';
         }
         
-        startBtn.addEventListener('click', startBreathing);
-        stopBtn.addEventListener('click', stopBreathing);
+        breathingCircle.addEventListener('click', function() {
+            if (isBreathing) {
+                stopBreathing();
+            } else {
+                startBreathing();
+            }
+        });
         
         // Add keyframes dynamically for pause animation
         const style = document.createElement('style');
@@ -833,33 +928,144 @@
         `;
         document.head.appendChild(style);
         
+        // Timer Functionality
+        const timerDisplay = document.getElementById('timerDisplay');
+        const startTimerBtn = document.getElementById('startTimer');
+        const pauseTimerBtn = document.getElementById('pauseTimer');
+        const resetTimerBtn = document.getElementById('resetTimer');
+        const timerDuration = document.getElementById('timerDuration');
+        
+        let timer;
+        let timeLeft = 5 * 60; // 5 minutes in seconds
+        let isRunning = false;
+        
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+        
+        function startTimer() {
+            if (!isRunning) {
+                isRunning = true;
+                startTimerBtn.disabled = true;
+                pauseTimerBtn.disabled = false;
+                
+                timer = setInterval(() => {
+                    timeLeft--;
+                    updateTimerDisplay();
+                    
+                    if (timeLeft <= 0) {
+                        clearInterval(timer);
+                        isRunning = false;
+                        new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3').play();
+                        alert('Tempo de meditação concluído!');
+                        resetTimer();
+                    }
+                }, 1000);
+            }
+        }
+        
+        function pauseTimer() {
+            if (isRunning) {
+                clearInterval(timer);
+                isRunning = false;
+                startTimerBtn.disabled = false;
+                pauseTimerBtn.disabled = true;
+            }
+        }
+        
+        function resetTimer() {
+            clearInterval(timer);
+            isRunning = false;
+            timeLeft = parseInt(timerDuration.value) * 60;
+            updateTimerDisplay();
+            startTimerBtn.disabled = false;
+            pauseTimerBtn.disabled = true;
+        }
+        
+        startTimerBtn.addEventListener('click', startTimer);
+        pauseTimerBtn.addEventListener('click', pauseTimer);
+        resetTimerBtn.addEventListener('click', resetTimer);
+        
+        timerDuration.addEventListener('change', function() {
+            if (!isRunning) {
+                timeLeft = parseInt(this.value) * 60;
+                updateTimerDisplay();
+            }
+        });
+        
+        // Sound Player Functionality
+        const oceanSound = document.getElementById('oceanSound');
+        const forestSound = document.getElementById('forestSound');
+        const rainSound = document.getElementById('rainSound');
+        
+        document.getElementById('playOcean').addEventListener('click', () => {
+            stopAllSounds();
+            oceanSound.play();
+        });
+        
+        document.getElementById('stopOcean').addEventListener('click', () => {
+            oceanSound.pause();
+            oceanSound.currentTime = 0;
+        });
+        
+        document.getElementById('playForest').addEventListener('click', () => {
+            stopAllSounds();
+            forestSound.play();
+        });
+        
+        document.getElementById('stopForest').addEventListener('click', () => {
+            forestSound.pause();
+            forestSound.currentTime = 0;
+        });
+        
+        document.getElementById('playRain').addEventListener('click', () => {
+            stopAllSounds();
+            rainSound.play();
+        });
+        
+        document.getElementById('stopRain').addEventListener('click', () => {
+            rainSound.pause();
+            rainSound.currentTime = 0;
+        });
+        
+        function stopAllSounds() {
+            oceanSound.pause();
+            oceanSound.currentTime = 0;
+            forestSound.pause();
+            forestSound.currentTime = 0;
+            rainSound.pause();
+            rainSound.currentTime = 0;
+        }
+        
+        // Initialize timer display
+        updateTimerDisplay();
+        
         // Animation on Scroll
         function animateOnScroll() {
             const elements = document.querySelectorAll('.feature-card, .tool-card, .section-title');
-            
+
+        function checkIfInView() {
             elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.3;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementBottom = element.getBoundingClientRect().bottom;
                 
-                if (elementPosition < screenPosition) {
-                    element.style.animation = 'fadeIn 0.8s ease-out forwards';
+                if (elementTop < window.innerHeight && elementBottom > 0) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
                 }
             });
         }
         
-        window.addEventListener('scroll', animateOnScroll);
-        window.addEventListener('load', animateOnScroll);
+        // Initial check
+        checkIfInView();
         
-        // Add hover animation to all buttons
-        document.querySelectorAll('.btn').forEach(btn => {
-            btn.addEventListener('mouseenter', function() {
-                this.style.animation = 'pulse 1s infinite';
-            });
-            
-            btn.addEventListener('mouseleave', function() {
-                this.style.animation = '';
-            });
-        });
-    </script>
-</body>
-</html>
+        // Check on scroll
+        window.addEventListener('scroll', checkIfInView);
+    }
+
+    // Call the function when the page loads
+    window.addEventListener('load', animateOnScroll);
+</script>
+</body> </html>
