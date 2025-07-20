@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZenSol - 12 Ferramentas Funcionais para Meditação</title>
+    <title>ZenSol - Ferramentas Funcionais para Meditação</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -305,47 +305,6 @@
         .breathing-btn:hover {
             background: var(--primary-dark);
             transform: translateY(-3px);
-        }
-        
-        /* Tools Section */
-        .tools {
-            padding: 5rem 0;
-            background-color: white;
-        }
-        
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .tool-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            border: 1px solid var(--accent);
-            animation: fadeIn 0.8s ease-out;
-            cursor: pointer;
-        }
-        
-        .tool-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(58, 90, 64, 0.1);
-            border-color: var(--primary);
-        }
-        
-        .tool-card h3 {
-            color: var(--primary-dark);
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .tool-card h3 i {
-            color: var(--primary);
         }
         
         /* Timer Section */
@@ -659,7 +618,7 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
-            <h1>ZenSol - 12 Ferramentas Funcionais</h1>
+            <h1>ZenSol - Ferramentas Funcionais</h1>
             <p>Experimente nossas ferramentas interativas para transformar sua prática de meditação.</p>
             <a href="#ferramentas" class="btn">Experimente Agora</a>
         </div>
@@ -748,7 +707,7 @@
             <div class="sound-player">
                 <h3>Oceano</h3>
                 <audio id="oceanSound" loop>
-                    <source src="https://assets.mixkit.co/sfx/preview/mixkit-ocean-waves-loop-1248.mp3" type="audio/mpeg">
+                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
                 </audio>
                 <div class="sound-controls">
                     <button class="timer-btn" id="playOcean">Tocar</button>
@@ -759,7 +718,7 @@
             <div class="sound-player">
                 <h3>Floresta</h3>
                 <audio id="forestSound" loop>
-                    <source src="https://assets.mixkit.co/sfx/preview/mixkit-forest-ambience-1685.mp3" type="audio/mpeg">
+                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
                 </audio>
                 <div class="sound-controls">
                     <button class="timer-btn" id="playForest">Tocar</button>
@@ -770,7 +729,7 @@
             <div class="sound-player">
                 <h3>Chuva</h3>
                 <audio id="rainSound" loop>
-                    <source src="https://assets.mixkit.co/sfx/preview/mixkit-rain-ambience-240.mp3" type="audio/mpeg">
+                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" type="audio/mpeg">
                 </audio>
                 <div class="sound-controls">
                     <button class="timer-btn" id="playRain">Tocar</button>
@@ -781,7 +740,7 @@
             <div class="sound-player">
                 <h3>Mantra</h3>
                 <audio id="mantraSound" loop>
-                    <source src="https://assets.mixkit.co/music/preview/mixkit-spiritual-achievement-117.mp3" type="audio/mpeg">
+                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3" type="audio/mpeg">
                 </audio>
                 <div class="sound-controls">
                     <button class="timer-btn" id="playMantra">Tocar</button>
@@ -826,57 +785,51 @@
     </section>
     
     <!-- Tools Section -->
-    <section class="tools" id="ferramentas">
+    <section class="features" id="ferramentas">
         <div class="container">
             <h2 class="section-title">Todas as Ferramentas</h2>
-            <div class="tools-grid">
-                <div class="tool-card" id="openBreathingTool2">
-                    <h3><i class="fas fa-lungs"></i> Assistente de Respiração</h3>
+            <div class="features-grid">
+                <div class="feature-card" id="openBreathingTool2">
+                    <div class="feature-icon">
+                        <i class="fas fa-lungs"></i>
+                    </div>
+                    <h3>Assistente de Respiração</h3>
                     <p>Guia visual e sonoro para exercícios de respiração.</p>
                 </div>
-                <div class="tool-card" id="openTimerTool2">
-                    <h3><i class="fas fa-hourglass-half"></i> Temporizador</h3>
+                <div class="feature-card" id="openTimerTool2">
+                    <div class="feature-icon">
+                        <i class="fas fa-hourglass-half"></i>
+                    </div>
+                    <h3>Temporizador</h3>
                     <p>Controle o tempo da sua sessão com alarme suave.</p>
                 </div>
-                <div class="tool-card" id="openSoundsTool2">
-                    <h3><i class="fas fa-music"></i> Sons Relaxantes</h3>
+                <div class="feature-card" id="openSoundsTool2">
+                    <div class="feature-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3>Sons Relaxantes</h3>
                     <p>Selecione entre diversos ambientes sonoros.</p>
                 </div>
-                <div class="tool-card" id="openJournalTool">
-                    <h3><i class="fas fa-book"></i> Diário</h3>
+                <div class="feature-card" id="openJournalTool">
+                    <div class="feature-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Diário</h3>
                     <p>Anote suas experiências e insights.</p>
                 </div>
-                <div class="tool-card" id="openProgressTool">
-                    <h3><i class="fas fa-chart-line"></i> Acompanhamento</h3>
+                <div class="feature-card" id="openProgressTool">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Acompanhamento</h3>
                     <p>Registre e visualize seu progresso.</p>
                 </div>
-                <div class="tool-card" id="openAffirmationsTool">
-                    <h3><i class="fas fa-quote-right"></i> Afirmações</h3>
+                <div class="feature-card" id="openAffirmationsTool">
+                    <div class="feature-icon">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <h3>Afirmações</h3>
                     <p>Frases positivas para inspirar seu dia.</p>
-                </div>
-                <div class="tool-card">
-                    <h3><i class="fas fa-moon"></i> Meditação Noturna</h3>
-                    <p>Técnicas para relaxar antes de dormir.</p>
-                </div>
-                <div class="tool-card">
-                    <h3><i class="fas fa-sun"></i> Meditação Matinal</h3>
-                    <p>Comece o dia com clareza e propósito.</p>
-                </div>
-                <div class="tool-card">
-                    <h3><i class="fas fa-walking"></i> Meditação Andando</h3>
-                    <p>Aprenda a meditar em movimento.</p>
-                </div>
-                <div class="tool-card">
-                    <h3><i class="fas fa-heartbeat"></i> Meditação Corporal</h3>
-                    <p>Conecte-se com seu corpo e liberte tensões.</p>
-                </div>
-                <div class="tool-card">
-                    <h3><i class="fas fa-eye"></i> Visualização</h3>
-                    <p>Pratique meditação através de imagens mentais.</p>
-                </div>
-                <div class="tool-card">
-                    <h3><i class="fas fa-bell"></i> Lembrete Diário</h3>
-                    <p>Configure alertas para sua prática diária.</p>
                 </div>
             </div>
         </div>
@@ -886,7 +839,7 @@
     <section class="cta" id="contato">
         <div class="container">
             <h2>Pronto para Transformar Sua Prática?</h2>
-            <p>Experimente todas as 12 ferramentas gratuitamente.</p>
+            <p>Experimente todas as ferramentas gratuitamente.</p>
             <a href="#" class="btn btn-accent pulse" style="animation: pulse 2s infinite;">Comece Agora</a>
         </div>
     </section>
@@ -1029,7 +982,7 @@
         let isBreathing = false;
         let breathDuration = 8000; // 8 seconds by default
         
-        // Create audio elements
+        // Create audio elements with working sounds
         const inhaleSound = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-deep-voice-meditation-1680.mp3');
         const exhaleSound = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-meditation-deep-breath-1681.mp3');
         
@@ -1122,7 +1075,7 @@
         const timerDuration = document.getElementById('timerDuration');
         const timerSoundSelect = document.getElementById('timerSound');
         
-        // Timer sounds
+        // Timer sounds with working audio files
         const timerSounds = {
             bell: new Audio('https://assets.mixkit.co/sfx/preview/mixkit-singing-bowl-1683.mp3'),
             bowl: new Audio('https://assets.mixkit.co/sfx/preview/mixkit-crystal-singing-bowl-1682.mp3'),
@@ -1190,11 +1143,17 @@
             }
         });
         
-        // Sound Player Functionality
+        // Sound Player Functionality with working audio files
         const oceanSound = document.getElementById('oceanSound');
         const forestSound = document.getElementById('forestSound');
         const rainSound = document.getElementById('rainSound');
         const mantraSound = document.getElementById('mantraSound');
+        
+        // Update audio sources with working files
+        oceanSound.src = 'https://assets.mixkit.co/sfx/preview/mixkit-ocean-waves-loop-1248.mp3';
+        forestSound.src = 'https://assets.mixkit.co/sfx/preview/mixkit-forest-ambience-1685.mp3';
+        rainSound.src = 'https://assets.mixkit.co/sfx/preview/mixkit-rain-ambience-240.mp3';
+        mantraSound.src = 'https://assets.mixkit.co/music/preview/mixkit-spiritual-achievement-117.mp3';
         
         // Volume controls
         document.getElementById('oceanVolume').addEventListener('input', function() {
@@ -1213,6 +1172,7 @@
             mantraSound.volume = this.value;
         });
         
+        // Play/Stop controls
         document.getElementById('playOcean').addEventListener('click', () => {
             stopAllSounds();
             oceanSound.play();
@@ -1369,6 +1329,8 @@
         forestSound.volume = 0.5;
         rainSound.volume = 0.5;
         mantraSound.volume = 0.5;
+        inhaleSound.volume = 0.7;
+        exhaleSound.volume = 0.7;
         
         // Animation on Scroll
         function animateOnScroll() {
